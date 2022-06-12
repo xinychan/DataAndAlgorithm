@@ -55,8 +55,8 @@ public class MyArray<E> {
         if (size == data.length) {
             resize(2 * data.length);
         }
-        for (int i = size - 1; i >= index; i--) {
-            data[i + 1] = data[i];
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
         }
         data[index] = e;
         size++;
@@ -121,8 +121,8 @@ public class MyArray<E> {
             throw new IllegalArgumentException("remove error,index error.");
         }
         E result = data[index];
-        for (int i = index + 1; i < size; i++) {
-            data[i - 1] = data[i];
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
         }
         size--;
         data[size] = null;
